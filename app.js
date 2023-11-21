@@ -218,7 +218,8 @@ app.use((err,req,res,next)=>{
 app.use((req,res)=>{
     res.status(404).send('Not Found')
 })
-app.listen(3000, () => {
+const port = PORT;
+app.listen(port, () => {
     console.log('Serving on port 3000')
 })
 
