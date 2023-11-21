@@ -27,8 +27,15 @@ module.exports.login = (req,res)=>{
 module.exports.loginSuccess = (req, res) => {
     req.flash('success', 'Welcome Back');
     const redirectUrl = res.locals.returnTo || '/campgrounds';
-    res.redirect(redirectUrl);
+    res.render('partials/navbar', { currentUser: req.user, success: req.flash('success') });
 };
+
+
+// module.exports.loginSuccess = (req, res) => {
+//     req.flash('success', 'Welcome Back');
+//     const redirectUrl = res.locals.returnTo || '/campgrounds';
+//     res.redirect(redirectUrl);
+// };
 
 module.exports.logout = (req, res, next) => {
     req.logout(function (err) {
