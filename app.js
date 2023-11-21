@@ -83,12 +83,12 @@ app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-
+const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 const store = MongoStore.create({
     mongoUrl: 'mongodb://127.0.0.1:27017/yelp-camp' || "mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'thisshouldbeabettersecret!'
+        secret: secret
     }
 });
 
@@ -107,7 +107,7 @@ store.on('error', function(e){
 const sessionConfig = {
     store:store,
     name: 'session',
-    secret: 'thisshouldbeabettersecret',
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
