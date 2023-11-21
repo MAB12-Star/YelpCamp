@@ -1,8 +1,4 @@
 { 
-  {
-    "engines": {
-    "node": "18.18.2"
-  },
   "name": "yelpcamp",
   "version": "1.0.0",
   "description": "",
