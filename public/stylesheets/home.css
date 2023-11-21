@@ -1,0 +1,38 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,.7)),
+    url("https://img.freepik.com/free-photo/tent-is-set-up-hill-with-sun-shining-it_1340-30923.jpg?t=st=1700362096~exp=1700365696~hmac=24327ebe6ca0ccf80732d95220cff65c99e9ae429374563242ac1884cfad1202&w=1380");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0,0,0,.5);
+    box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+
+}
+
+.cover-container {
+    max-width: 60vw;
+
+}
+
+.btn-secondary, .btn-secondary:hover {
+    background-color: #fff; /* Set the background color to white */
+    color: #333;
+    text-shadow: none;
+}
+
+.nav-link {
+    padding: .25rem 0;
+    font-weight: 700; 
+    color: rgba(255,255,255,.5);
+    margin-left: 1rem;
+    border-bottom:.025rem solid transparent;
+}
+.nav-link:hover{
+    color: rgba(255,255,255,.5);
+    border-bottom-color: rgba(255,255,255,.5);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color: white;
+}

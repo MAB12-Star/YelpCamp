@@ -1,0 +1,40 @@
+<% layout('/layout/boilerplate') %>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+<div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3">
+        <div class="card shadow">
+            <img src="https://howtostartanllc.com/images/business-ideas/business-idea-images/campground.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">register</h5>
+<form action="/register" method="POST" class="validated-form" novalidate>
+    <div class="mb-3">
+        <label class= "form-label" for="username">Username</label>
+        <input class="form-control" type="text" name="username" id="username" autofocus required>
+        <div class="valid-feedback">
+            Looks Good! 
+         </div>
+         </div>
+         <div class="mb-3">
+            <label class= "form-label" for="email">email</label>
+            <input class="form-control" type="email" name="email" id="email"  required>
+            <div class="valid-feedback">
+                Looks Good! 
+             </div>
+             </div>
+
+             <div class="mb-3">
+                <label class= "form-label" for="password">Password</label>
+                <input class="form-control" type="password" name="password" id="password" required>
+                <div class="valid-feedback">
+                    Looks Good! 
+                 </div>
+                 </div>
+                 <div class="d-grid gap-2">
+                 <button class="btn btn-success btn-block">Register</button>
+                </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
