@@ -1,4 +1,8 @@
-{
+{ 
+  {
+    "engines": {
+    "node": "18.18.2"
+  },
   "name": "yelpcamp",
   "version": "1.0.0",
   "description": "",
@@ -35,8 +39,4 @@
     "serve-favicon": "^2.5.0",
     "urlencode": "^1.1.0"
   }
-  {
-  "engines": {
-    "node": "18.18.2"
-  },
 }
