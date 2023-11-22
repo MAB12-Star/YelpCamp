@@ -50,10 +50,7 @@ const client = new MongoClient(uri, {
       // Send a ping to confirm a successful connection
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-      await client.close();
-    }
+   
   }
   run().catch(console.dir);
 
@@ -81,8 +78,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 
-async function run() {
-  await const store = MongoStore.create({
+const store = MongoStore.create({
     mongoUrl:  "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
     touchAfter: 24 * 60 * 60,
     crypto: {
@@ -207,7 +203,7 @@ app.use((req,res)=>{
     res.status(404).send('Not Found')
 })
 
-app.listen(10000, () => {
+app.listen(3000, () => {
     console.log('Serving on port 3000')
 })
 
