@@ -54,6 +54,7 @@ const client = new MongoClient(uri, {
       // Ensures that the client will close when you finish/error
       await client.close();
     }
+      
   }
   run().catch(console.dir);
 
@@ -87,7 +88,7 @@ const store = MongoStore.create({
     crypto: {
         secret: secret
     }
-}});
+});
 store.on('error', function(e){
     console.log('Session Store Error',e)
 })
