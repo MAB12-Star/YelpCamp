@@ -33,7 +33,7 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority&ssl=true";
 
 
 const client = new MongoClient(uri, {
@@ -83,7 +83,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 
 const store = MongoStore.create({
-    mongoUrl:  "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
+    mongoUrl:  "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority&ssl=true",
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: secret
