@@ -19,6 +19,8 @@ const helmet = require('helmet');
 const favicon = require('serve-favicon');
 
 
+
+
 const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError.js');
 
@@ -81,7 +83,7 @@ app.use(morgan('dev'));
 
 app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 const store = MongoStore.create({
