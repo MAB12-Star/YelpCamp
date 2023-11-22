@@ -65,14 +65,14 @@ app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const secret = process.env.SECRET ||'thisshouldbeabettersecret';
-const store = MongoStore.create({
-    mongoUrl:"mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
-    touchAfter: 24 * 60 * 60,
-    crypto: {
-        secret: secret
-    }
-});
+// const secret = process.env.SECRET ||'thisshouldbeabettersecret';
+// const store = MongoStore.create({
+//     mongoUrl:"mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
+//     touchAfter: 24 * 60 * 60,
+//     crypto: {
+//         secret: secret
+//     }
+// });
 
 
 // const store = new MongoDBStore({
