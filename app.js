@@ -85,7 +85,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 const store = MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/yelp-camp' || "mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
+    mongoUrl: uri;
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: secret
@@ -177,20 +177,18 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-
-app.use((req,res,next)=>{
-    res.locals.currentUser=req.user;
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
     req.requestTime = Date.now();
-    console.log(req.method,req.path);
+    console.log(req.method, req.path);
     next();
-})
+});
 
-app.use((req,res,next) =>{
+app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
-})
+});
 
 
 app.use('/', userRoutes);
