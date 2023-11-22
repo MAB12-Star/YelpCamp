@@ -57,6 +57,7 @@ const client = new MongoClient(uri, {
   }
   run().catch(console.dir);
 
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
