@@ -81,13 +81,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const secret = process.env.SECRET ||'thisshouldbeabettersecret';
 
-const store = MongoStore.create({
+async function run() {
+  await const store = MongoStore.create({
     mongoUrl:  "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: secret
     }
-});
+}});
 store.on('error', function(e){
     console.log('Session Store Error',e)
 })
