@@ -36,14 +36,26 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority";
 
 
-
-// 'mongodb://127.0.0.1:27017/yelp-camp'
-
-// mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
-
+const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
+  async function run() {
+    try {
+      // Connect the client to the server	(optional starting in v4.7)
+      await client.connect();
+      // Send a ping to confirm a successful connection
+      await client.db("admin").command({ ping: 1 });
+      console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    } finally {
+      // Ensures that the client will close when you finish/error
+      await client.close();
+    }
+  }
+  run().catch(console.dir);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -65,21 +77,15 @@ app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// const secret = process.env.SECRET ||'thisshouldbeabettersecret';
-// const store = MongoStore.create({
-//     mongoUrl:"mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
-//     touchAfter: 24 * 60 * 60,
-//     crypto: {
-//         secret: secret
-//     }
-// });
+const secret = process.env.SECRET ||'thisshouldbeabettersecret';
+const store = MongoStore.create({
+    mongoUrl:"mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: secret
+    }
+});
 
-
-// const store = new MongoDBStore({
-//     url: mongodb://127.0.0.1:27017/yelp-camp' || "mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority",
-//     secret: 'testing',
-//     touchAfter: 24 * 3600
-// })
 
 store.on('error', function(e){
     console.log('Session Store Error',e)
