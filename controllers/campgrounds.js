@@ -4,7 +4,7 @@ const mbxGeocoding = require ('@mapbox/mapbox-sdk/services/geocoding');
 const campground = require('../models/campground.js');
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geoCoder = mbxGeocoding ({ accessToken: mapBoxToken});
-const result = await Campground.find({/* your query */}).maxTimeMS(20000); // 20 seconds
+
 
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
