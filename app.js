@@ -33,7 +33,7 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.DB_URL;
+const uri = "mongodb+srv://Admin01:aKUp1aVGsYuAebAs@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
     serverApi: {
