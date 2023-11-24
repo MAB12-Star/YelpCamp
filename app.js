@@ -33,30 +33,14 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://Admin02:test123@cluster0.omts09l.mongodb.net/?retryWrites=true&w=majority&ssl=true";
-
-
-const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
-  async function run() {
-    try {
-      // Connect the client to the server	(optional starting in v4.7)
-      await client.connect();
-      // Send a ping to confirm a successful connection
-      await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-      await client.close();
-    }
-      
-  }
-  run().catch(console.dir);
+const uri = process.env.DB_URL
+mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // poolSize: 10, // Number of connections in the connection pool
+    // serverSelectionTimeoutMS: 5000, // Timeout for selecting a server
+    // socketTimeoutMS: 45000, // Timeout for individual socket operations
+})
 
 
 const db = mongoose.connection;
